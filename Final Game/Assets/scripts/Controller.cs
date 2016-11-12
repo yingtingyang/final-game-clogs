@@ -63,12 +63,7 @@ public class Controller : Movement {
 
 		}
 
-//		if (boundDist>=8) 
-//
-//		{
-//			 Mathf.Clamp (transform.position.x,0.0f,10.0f);
-//		}
-//		Debug.Log (boundDist);
+
 
 	}
 
