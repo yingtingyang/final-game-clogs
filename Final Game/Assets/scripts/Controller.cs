@@ -7,24 +7,11 @@ public class Controller : Movement {
 	public float boundBreak = 1;
 	float boundDist;
 
-
 	void Start() {
-
-  
+		 boundDist = Vector3.Distance(transform.position, obj2.position);
 	}
 //	 Update is called once per frame
 	void Update () {
-//		boundDist = Vector3.Distance(transform.position, obj2.position);
-
-		float maxDist = 7;
-		if (Vector3.Distance (Vector3.zero, transform.position) > maxDist) {
-			
-			float angle = Mathf.Atan2 (transform.position.y, transform.position.x);
-			float x_offset = Mathf.Cos (angle) * maxDist;
-			float y_offset = Mathf.Sin (angle) * maxDist;
-
-			transform.position = new Vector3 (x_offset, y_offset, transform.position.z);
-		}
 
 
 		if (Input.GetKey (KeyCode.UpArrow)) 
@@ -63,12 +50,16 @@ public class Controller : Movement {
 
 		}
 
-//		if (boundDist>=8) 
-//
-//		{
-//			 Mathf.Clamp (transform.position.x,0.0f,10.0f);
+		if (Input.GetKey (KeyCode.D)) 
+
+		{
+
+		}
+
+//		if (boundDist == 8) {
+//			transform.position.x = Mathf.Clamp (transform.position.x, 0f, 8);
+//		
 //		}
-//		Debug.Log (boundDist);
 
 	}
 
@@ -77,7 +68,7 @@ public class Controller : Movement {
 	{
 		if (other.gameObject.tag == "Bound") 
 		{
-			speed = 8;
+			speed = 6;
 		}
 	}
 
@@ -85,7 +76,7 @@ public class Controller : Movement {
 	{
 		if (other.gameObject.tag == "Bound") 
 		{
-			speed-=4;
+			speed-=3;
 			Debug.Log ("wut");
 
 			if (speed <= boundBreak) 
