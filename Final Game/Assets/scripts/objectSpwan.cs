@@ -6,6 +6,7 @@ public class objectSpwan : MonoBehaviour
     public GameObject enemy;                // The enemy prefab to be spawned.
     public float spawnTime = 3f;            // How long between each spawn.
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
+    public float heightVariablilty = 10;
     //public Rigidbody2D rb;
     //public float speed;
 
@@ -19,6 +20,7 @@ public class objectSpwan : MonoBehaviour
 
     void Spawn()
     {
+        Vector3 spawnPos = transform.position + Vector3.up * (Random.value * heightVariablilty - heightVariablilty * .5f);
 
         // Find a random index between zero and one less than the number of spawn points.
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
