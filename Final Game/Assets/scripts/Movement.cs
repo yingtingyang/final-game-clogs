@@ -3,11 +3,13 @@ using System.Collections;
 
 public class Movement : MonoBehaviour {
 	
-	public int speed;
+	public float speed;
+
+	public bool gethit = true;
 
 	public Movement()
 	{
-		speed = 8;
+		speed = 6;
 	}
 
 	public void MoveUp()
@@ -28,6 +30,31 @@ public class Movement : MonoBehaviour {
 	public void MoveRight()
 	{
 		transform.position += transform.right * Time.deltaTime * speed;
+
 	}	
+
+
+	public void dodge ()
+	{
+		gethit = false;
+
+	}
+
+
+	public void grab()
+	{
+		
+	}
+
+	public void attack()
+	{
+
+
+
+	}
+
+		
+
+
 
 }
