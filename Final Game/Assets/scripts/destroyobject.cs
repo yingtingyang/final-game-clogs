@@ -9,7 +9,8 @@ public class destroyobject : MonoBehaviour {
        }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if(coll.transform.tag == hazards)
+        //if(coll.transform.tag == "hazards")
+        if (coll.transform.CompareTag("hazards"))
         {
             Debug.Log("HIT");
             Destroy(gameObject);
