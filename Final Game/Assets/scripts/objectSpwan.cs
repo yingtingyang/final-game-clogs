@@ -35,10 +35,6 @@ public class objectSpwan : MonoBehaviour
         }
 
     }
-    void FixedUpdate()
-    {
-       
-    }
-
+  
 
 }
