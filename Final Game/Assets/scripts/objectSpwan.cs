@@ -7,6 +7,8 @@ public class objectSpwan : MonoBehaviour
     public float spawnTime = 3f;            // How long between each spawn.
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
     public float heightVariablilty = 10;
+    public float speed = 5f;
+    
     //public Rigidbody2D rb;
     //public float speed;
 
@@ -20,14 +22,22 @@ public class objectSpwan : MonoBehaviour
 
     void Spawn()
     {
-        Vector3 spawnPos = transform.position + Vector3.up * (Random.value * heightVariablilty - heightVariablilty * .5f);
+        //Vector3 spawnPos = transform.position + Vector3.up * (Random.value * heightVariablilty - heightVariablilty * .5f);
+       for(int shootnumber = 0; shootnumber< 3; shootnumber++)
+        {
+            // Find a random index between zero and one less than the number of spawn points.
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+            int spawnEnemyIndex = Random.Range(0, 3);
+            // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+            GameObject rb = Instantiate(enemy[spawnEnemyIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
+            rb.GetComponent<Rigidbody2D>().velocity = Vector2.left * Random.Range(10,20);
 
-        // Find a random index between zero and one less than the number of spawn points.
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+        }
 
-        // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        Instantiate(enemy[0], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-        
+    }
+    void FixedUpdate()
+    {
+       
     }
 
 
