@@ -2,17 +2,14 @@
 using System.Collections;
 
 public class destroyobject : MonoBehaviour {
-    //GameObject hazards;
 
 	// Use this for initialization
 	void Start () {
         
        }
-    void OnTriggerEnter2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-       //hazards = GameObject.FindGameObjectsWithTag("hazards");
-    
-        if(coll.gameObject.tag == "hazards")
+        if(coll.transform.tag == hazards)
         {
             Debug.Log("HIT");
             Destroy(gameObject);
