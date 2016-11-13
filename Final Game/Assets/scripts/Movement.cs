@@ -37,7 +37,6 @@ public class Movement : MonoBehaviour {
 	public void dodge ()
 	{
 
-
 	}
 
 

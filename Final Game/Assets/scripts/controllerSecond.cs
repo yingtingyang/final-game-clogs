@@ -59,11 +59,6 @@ public class controllerSecond : Movement
             dodge();
         }
 
-        if (Input.GetKey(KeyCode.G))
-
-        {
-
-        }
 
 
 
