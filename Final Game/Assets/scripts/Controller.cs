@@ -2,25 +2,22 @@
 using System.Collections;
 
 public class Controller : Movement {
-
-
-	public GameObject obj2 ;
+	
+	public Transform obj2;
+	public float boundBreak = 1;
 	float boundDist;
-	int desc = 0;
-	int Hitcount = 0;
-	float maxDist;
+	int desc = -5;
+
     void Start()
     {
-		
     }
     //	 Update is called once per frame
     void Update()
-
     {
         //		boundDist = Vector3.Distance(transform.position, obj2.position);
-		obj2 = obj2.transform.position as Vector3;
-         maxDist = 7;
-        if (Vector3.Distance(obj2, transform.position) > maxDist)
+
+        float maxDist = 7;
+        if (Vector3.Distance(Vector3.zero, transform.position) > maxDist)
         {
 
             float angle = Mathf.Atan2(transform.position.y, transform.position.x);
@@ -55,30 +52,25 @@ public class Controller : Movement {
             MoveRight();
         }
 
-		if (Input.GetKeyDown (KeyCode.A)) {
-			gethit = false;
+        if (Input.GetKey(KeyCode.A))
 
-		} 
-		else if (Input.GetKeyUp(KeyCode.A))
+        {
+            dodge();
+        }
 
         if (Input.GetKey(KeyCode.S))
 
         {
-			gethit = true;
+
         }
 
-		if (Hitcount == 3) {
-			Destroy(gameObject);
 
-		}
 
     }
 
 
     void OnTriggerStay2D(Collider2D other)
     {
-		
-
         if (other.gameObject.tag == "Bound")
         {
             speed = 8;
@@ -102,12 +94,18 @@ public class Controller : Movement {
             }
     void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.gameObject.tag == "hazards" )
+        if (other.gameObject.tag == "hazards")
         {
-			Hitcount++;
-			desc -= 5;
-			maxDist -= 5;
+            desc -= 5;
+            descend();
+
         }
+    }
+
+	public void descend ()
+	{
+		obj2.transform.position = new Vector2(0,desc);
+
     }
 
 

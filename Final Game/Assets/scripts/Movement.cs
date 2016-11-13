@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour {
 
 	public Movement()
 	{
-		speed = 8;
+		speed = 6;
 	}
 
 	public void MoveUp()
@@ -35,8 +35,8 @@ public class Movement : MonoBehaviour {
 
 
 	public void dodge ()
-	{   
-		
+	{
+		gethit = false;
 
 	}
 
