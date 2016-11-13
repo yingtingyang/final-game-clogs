@@ -1,36 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
 public class Controller : Movement {
 	
 	public Transform obj2;
 	public float boundBreak = 1;
 	float boundDist;
 	int desc = -5;
-=======
-public class Controller : Movement
-{
->>>>>>> 9e755d47090ed313bdeaf4cc1d9d71554bacaa63
-
-    public Transform obj2;
-    public float boundBreak = 1;
-    float boundDist;
-
 
     void Start()
     {
-
-<<<<<<< HEAD
-		float maxDist = 7;
-		if (Vector3.Distance (obj2.transform.position, transform.position) > maxDist) {
-			
-			float angle = Mathf.Atan2 (transform.position.y, transform.position.x);
-			float x_offset = Mathf.Cos (angle) * maxDist;
-			float y_offset = Mathf.Sin (angle) * maxDist;
-=======
->>>>>>> 9e755d47090ed313bdeaf4cc1d9d71554bacaa63
-
     }
     //	 Update is called once per frame
     void Update()
@@ -98,59 +77,36 @@ public class Controller : Movement
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Bound")
-        {
-            speed -= 4;
-            Debug.Log("wut");
 
-            if (speed <= boundBreak)
-
-<<<<<<< HEAD
-	void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerExit2D (Collider2D other)
 	{
+                if (other.gameObject.tag == "Bound")
+                {
+                    speed -= 4;
+                    Debug.Log("wut");
 
-=======
-            {
-                speed = boundBreak;
+                    if (speed <= boundBreak)
+
+                    {
+                        speed = boundBreak;
+                    }
+                }
             }
+    void OnTriggerEnter2D(Collider2D other)
+	{
+        if (other.gameObject.tag == "hazards")
+        {
+            desc -= 5;
+            descend();
+
         }
     }
->>>>>>> 9e755d47090ed313bdeaf4cc1d9d71554bacaa63
 
-		if (other.gameObject.tag == "hazards") 
-		{
-			desc -= 5;
-		   descend();
-
-		}
-
-
-	}
-
-
-
-
-
-
-    void descend()
-    {
-
-
-<<<<<<< HEAD
 	public void descend ()
 	{
 		obj2.transform.position = new Vector2(0,desc);
 
-
-
-	}
-=======
-
-
     }
->>>>>>> 9e755d47090ed313bdeaf4cc1d9d71554bacaa63
 
 
 }
