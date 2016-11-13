@@ -36,7 +36,6 @@ public class Movement : MonoBehaviour {
 
 	public void dodge ()
 	{
-		gethit = false;
 
 	}
 
