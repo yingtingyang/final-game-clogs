@@ -1,12 +1,13 @@
-﻿    using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class Controller : Movement {
-	
-	public Transform obj2;
-	public float boundBreak = 1;
-	float boundDist;
-	int desc = -5;
+public class controllerSecond : Movement
+{
+
+    public Transform obj2;
+    public float boundBreak = 1;
+    float boundDist;
+    int desc = -5;
 
     void Start()
     {
@@ -28,37 +29,37 @@ public class Controller : Movement {
         }
 
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
 
         {
             MoveUp();
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
 
         {
             MoveDown();
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
 
         {
             MoveLeft();
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
 
         {
             MoveRight();
         }
 
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.F))
 
         {
             dodge();
         }
 
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.G))
 
         {
 
@@ -78,22 +79,22 @@ public class Controller : Movement {
     }
 
 
-    void OnTriggerExit2D (Collider2D other)
-	{
-                if (other.gameObject.tag == "Bound")
-                {
-                    speed -= 0;
-                    Debug.Log("wut");
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Bound")
+        {
+            speed -= 0;
+            Debug.Log("wut");
 
-                    if (speed <= boundBreak)
+            if (speed <= boundBreak)
 
-                    {
-                        speed = boundBreak;
-                    }
-                }
+            {
+                speed = boundBreak;
             }
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
-	{
+    {
         if (other.gameObject.tag == "hazards")
         {
             desc -= 5;
@@ -102,9 +103,9 @@ public class Controller : Movement {
         }
     }
 
-	public void descend ()
-	{
-		obj2.transform.position = new Vector2(0,desc);
+    public void descend()
+    {
+        obj2.transform.position = new Vector2(0, desc);
 
     }
 
