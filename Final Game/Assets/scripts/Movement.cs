@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour {
 	
 	public float speed;
 
-	public bool gethit = true;
+
 
 	public Movement()
 	{

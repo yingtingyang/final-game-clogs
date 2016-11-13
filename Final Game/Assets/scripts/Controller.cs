@@ -4,11 +4,13 @@ using System.Collections;
 public class Controller : Movement {
 
 
-	public GameObject obj2 ;
+	public Transform obj2 ;
 	float boundDist;
 	int desc = 0;
 	int Hitcount = 0;
 	float maxDist;
+	int boundBreak = 2;
+	bool gethit = true;
     void Start()
     {
 		
@@ -18,9 +20,8 @@ public class Controller : Movement {
 
     {
         //		boundDist = Vector3.Distance(transform.position, obj2.position);
-		obj2 = obj2.transform.position as Vector3;
          maxDist = 7;
-        if (Vector3.Distance(obj2, transform.position) > maxDist)
+        if (Vector3.Distance(obj2.position, transform.position) > maxDist)
         {
 
             float angle = Mathf.Atan2(transform.position.y, transform.position.x);
@@ -59,12 +60,18 @@ public class Controller : Movement {
 			gethit = false;
 
 		} 
-		else if (Input.GetKeyUp(KeyCode.A))
+
+		if (Input.GetKeyUp (KeyCode.A))
+		
+		{
+			gethit = true;
+		}
+
 
         if (Input.GetKey(KeyCode.S))
 
         {
-			gethit = true;
+
         }
 
 		if (Hitcount == 3) {
@@ -102,12 +109,15 @@ public class Controller : Movement {
             }
     void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.gameObject.tag == "hazards" )
+        if (other.gameObject.tag == "hazards" && gethit)
         {
 			Hitcount++;
 			desc -= 5;
 			maxDist -= 5;
         }
+		if (gethit) {
+			return;
+		}
     }
 
 
