@@ -22,9 +22,11 @@ public class cameraShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     { }
+
     public void startShake() {
         StartCoroutine("shakeCam");
     }
+
     IEnumerator shakeCam()
     {
         float timeLeft = shakeDuration;

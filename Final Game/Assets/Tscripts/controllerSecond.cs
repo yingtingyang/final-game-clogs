@@ -4,8 +4,6 @@ using System.Collections;
 public class controllerSecond : Movement
 {
 
-    public Transform obj2;
-    public float boundBreak = 1;
     float boundDist;
     int desc = -5;
 
@@ -56,7 +54,7 @@ public class controllerSecond : Movement
         if (Input.GetKey(KeyCode.F))
 
         {
-            dodge();
+          
         }
 
 
