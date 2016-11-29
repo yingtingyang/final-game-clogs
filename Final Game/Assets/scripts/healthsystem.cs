@@ -78,7 +78,7 @@ public class healthsystem : MonoBehaviour
         //anim.SetTrigger("Die");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        playerAudio.clip = deathClip;
+//        playerAudio.clip = deathClip;
         playerAudio.Play();
 
 

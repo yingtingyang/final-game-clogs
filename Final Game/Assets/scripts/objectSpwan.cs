@@ -28,10 +28,11 @@ public class objectSpwan : MonoBehaviour
             // Find a random index between zero and one less than the number of spawn points.
             int spawnPointIndex = Random.Range(0, spawnPoints.Length);
             int spawnEnemyIndex = Random.Range(0, 3);
+            // int spawnPointIndex = Random.
             // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
             GameObject rb = Instantiate(enemy[spawnEnemyIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
             rb.GetComponent<Rigidbody2D>().velocity = Vector2.left * Random.Range(10,20);
-            rb.GetComponent<Rigidbody2D>().transform.Rotate(Vector3.forward);
+            //rb.GetComponent<Rigidbody2D>().transform.Rotate(Vector3.forward);
             
         }
 
