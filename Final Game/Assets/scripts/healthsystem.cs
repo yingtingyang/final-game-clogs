@@ -17,7 +17,8 @@ public class healthsystem : MonoBehaviour
     AudioSource playerAudio;                                    // Reference to the AudioSource component.
     bool isDead;                                                // Whether the player is dead.
     bool damaged;                                               // True when the player gets damaged.
-
+    Movement PlayerMovement;
+    grabthrowP1 grab1;
 
     void Awake()
     {
@@ -59,6 +60,30 @@ public class healthsystem : MonoBehaviour
         // Reduce the current health by the damage amount.
         currentHealth -= amount;
 
+        //healthbar change with player health.
         healthSlider.value = currentHealth;
+
+        //if health <=0, player dead.
+        if (currentHealth <= 0 && !isDead)
+        {
+            // ... it should die.
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        isDead = true;
+        // Tell the animator that the player is dead.
+        //anim.SetTrigger("Die");
+
+        // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
+        playerAudio.clip = deathClip;
+        playerAudio.Play();
+
+
+        // Turn off the movement and shooting scripts.
+        PlayerMovement.enabled = false;
+        grab1.enabled = false;
     }
 }

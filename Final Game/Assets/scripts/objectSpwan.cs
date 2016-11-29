@@ -31,7 +31,8 @@ public class objectSpwan : MonoBehaviour
             // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
             GameObject rb = Instantiate(enemy[spawnEnemyIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
             rb.GetComponent<Rigidbody2D>().velocity = Vector2.left * Random.Range(10,20);
-
+            rb.GetComponent<Rigidbody2D>().transform.Rotate(Vector3.forward);
+            
         }
 
     }
