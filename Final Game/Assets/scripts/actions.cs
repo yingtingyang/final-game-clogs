@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class actions : Movement 
 {
@@ -16,21 +17,23 @@ public class actions : Movement
 	private Vector3 players_Last_Position;
 	private Transform otherplayer;
 
+	// die fields
+	public int life ;
 
 
 
 
 
 
-
-
-	public actions() 
+	void Start() 
 	{
 
 		otherplayer = GameObject.Find("player 2").transform;
 		throwspeed = 5;
 		heldObjRb = null;
+
 	}
+
 
 	public void grab(string button, Collider2D otherObj)
 	{
@@ -65,7 +68,43 @@ public class actions : Movement
 		}
 
 	}
+   
 
+	public bool isDead()
+	{
+		if (life <= 0)
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+
+		}
+			
+	}
+
+
+	public void die() 
+	{
+		if (isDead()) 
+	{
+		Destroy (gameObject);
+	}
+ 
+	}
+		
+
+	public void dodge(Collider2D otherObj,string button)
+	{
+		if (Input.GetKeyDown (button)) 
+		{
+			if (otherObj.transform.CompareTag ("player"))
+			{	
+				GetComponent<BoxCollider2D>().enabled = false;
+			}
+		}
+	}
 
 
 

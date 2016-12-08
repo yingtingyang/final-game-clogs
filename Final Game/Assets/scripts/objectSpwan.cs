@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class objectSpwan : MonoBehaviour
 {
     public GameObject[] enemy;                // The enemy prefab to be spawned.
