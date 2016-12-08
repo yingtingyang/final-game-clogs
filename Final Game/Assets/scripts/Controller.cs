@@ -2,16 +2,21 @@
 using System.Collections;
 
 public class Controller : actions {
-
-
-    void awake()
+	
+    void Start()
     {
+		life = 3;
+
 		
     }
     //	 Update is called once per frame
     void Update()
     {
-		thrower ("f");
+
+		 
+		thrower ("g");
+		die();
+	
 
 		Mspace ();
 
@@ -39,7 +44,7 @@ public class Controller : actions {
             MoveRight();
         }
 			
-
+		Debug.Log (life);
 
     }
 
@@ -47,18 +52,13 @@ public class Controller : actions {
 	void  OnTriggerEnter2D (Collider2D otherObj)
 	{
 		if (otherObj.transform.CompareTag ("hazards"))
-		{
-			grab ("f", otherObj);
-
-		}
-	}
-
-	void  OnCollisionEnter2D ( Collision2D otherObj)
-	{
-		if (otherObj.transform.CompareTag ("hazards"))
-		{
+		{	
+			life--;
 			collDetect (otherObj);
-
+			grab ("f", otherObj);
 		}
 	}
+
+
+
 }
