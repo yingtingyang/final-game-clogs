@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Controller : actions {
-
+    
+    public Animator player_1;
 
     void awake()
     {
@@ -30,12 +31,14 @@ public class Controller : actions {
         if (Input.GetKey(KeyCode.LeftArrow))
 
         {
+            player_1.Play("leftP1");
             MoveLeft();
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
 
         {
+            player_1.Play("rightP1");
             MoveRight();
         }
 			
@@ -48,7 +51,9 @@ public class Controller : actions {
 	{
 		if (otherObj.transform.CompareTag ("hazards"))
 		{
-			grab ("f", otherObj);
+            player_1.Play("grabP1");
+            grab ("f", otherObj);
+        
 
 		}
 	}
