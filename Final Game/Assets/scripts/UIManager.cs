@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour {
 
 	void travelDist()
 	{
-		slider.value = Mathf.MoveTowards (slider.value, slider.maxValue, 0.1f);
+	slider.value = Mathf.MoveTowards (slider.value, slider.maxValue, 0.1f);
 	}
 
 

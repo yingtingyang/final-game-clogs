@@ -23,30 +23,30 @@ public class Controller2 : actions {
 
 
 		 
-		thrower ("X");
-		die();
+		thrower ("x");
+		die(lifeP2);
 	
 
 		Mspace ();
 
-        if (Input.GetKey("W"))
+        if (Input.GetKey(KeyCode.W))
         {
             MoveUp();
         }
 
-        if (Input.GetKey("S"))
+		if (Input.GetKey(KeyCode.S))
 
         {
             MoveDown();
         }
 
-        if (Input.GetKey("A"))
+		if (Input.GetKey(KeyCode.A))
 
         {
             MoveLeft();
         }
 
-        if (Input.GetKey("D"))
+		if (Input.GetKey(KeyCode.D))
 
         {
             MoveRight();
@@ -70,9 +70,9 @@ public class Controller2 : actions {
 
 		{
 
-			lifeP1--;
+			lifeP2--;
 			collDetect (otherObj);
-			grab ("Z", otherObj);
+			grab ("Z", otherObj,player2);
 		}
 
 	}

@@ -8,8 +8,8 @@ public class Controller : actions {
 
     void Start()
     {
-		lifeP1 = 3;
 
+		lifeP1 = 3;
 		
     }
     //	 Update is called once per frame
@@ -26,7 +26,7 @@ public class Controller : actions {
 
 
 		thrower ("n");
-		die();
+		die(lifeP1);
 	
 
 		Mspace ();
@@ -76,7 +76,7 @@ public class Controller : actions {
 		
 				lifeP1--;
 				collDetect (otherObj);
-				grab ("m", otherObj);
+			grab ("m", otherObj, player1);
 			}
 
 

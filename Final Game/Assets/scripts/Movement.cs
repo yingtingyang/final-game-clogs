@@ -4,14 +4,14 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 	
 	public float speed;
-	public Transform obj2;
+//	public Transform obj2;
 	public float boundBreak = 1;
 	float boundDist;
 
 	//camera movement
 	cameraShake Camera;
 
-    public Animator player_1;
+//    public Animator player_1;
 
 
 
@@ -31,14 +31,14 @@ public class Movement : MonoBehaviour {
 	}	
 
 	public void MoveLeft()
-	{
-        player_1.Play("leftP1");
+{
+//        player_1.Play("leftP1");
         transform.position -= transform.right * Time.deltaTime * speed;
 	}	
 
 	public void MoveRight()
 	{
-        player_1.Play("rightP1");
+//        player_1.Play("rightP1");
         transform.position += transform.right * Time.deltaTime * speed;
 
 	}	

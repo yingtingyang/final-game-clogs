@@ -28,7 +28,8 @@ public class actions : Movement
 
 	void Start() 
 	{
-
+		lifeP1 = 3;
+		lifeP2 = 3;
 		otherplayer = GameObject.Find("player 2").transform;
 		throwspeed = 5;
 		heldObjRb = null;
@@ -36,12 +37,12 @@ public class actions : Movement
 	}
 
 
-	public void grab(string button, Collider2D otherObj)
+	public void grab(string button, Collider2D otherObj,Transform parentPlayer)
 	{
 		
 			if (Input.GetKeyDown(button) && heldObjRb == null)
 			{
-			    otherObj.transform.parent = player1;
+				otherObj.transform.parent = parentPlayer;
 				heldObjRb = otherObj.gameObject.GetComponent<Rigidbody2D>();
 				heldObjRb.velocity = Vector2.zero;
 				Debug.Log("grab");
@@ -71,9 +72,9 @@ public class actions : Movement
 	}
    
 
-	public bool isDead()
+	public bool isDead(int playerlife)
 	{
-		if (lifeP1 <= 0)
+		if (playerlife <= 0)
 		{
 			return true;
 		}
@@ -86,9 +87,9 @@ public class actions : Movement
 	}
 
 
-	public void die() 
+	public void die(int playerlife) 
 	{
-		if (isDead()) 
+		if (isDead(playerlife)) 
 	{
 		Destroy (gameObject);
 	}
