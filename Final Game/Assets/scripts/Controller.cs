@@ -2,21 +2,17 @@
 using System.Collections;
 
 public class Controller : actions {
-	
-    void Start()
-    {
-		life = 3;
+    
+    
 
+    void awake()
+    {
 		
     }
     //	 Update is called once per frame
     void Update()
     {
-
-		 
-		thrower ("g");
-		die();
-	
+		thrower ("f");
 
 		Mspace ();
 
@@ -35,16 +31,18 @@ public class Controller : actions {
         if (Input.GetKey(KeyCode.LeftArrow))
 
         {
+            
             MoveLeft();
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
 
         {
+            
             MoveRight();
         }
 			
-		Debug.Log (life);
+
 
     }
 
@@ -52,13 +50,20 @@ public class Controller : actions {
 	void  OnTriggerEnter2D (Collider2D otherObj)
 	{
 		if (otherObj.transform.CompareTag ("hazards"))
-		{	
-			life--;
-			collDetect (otherObj);
-			grab ("f", otherObj);
+		{
+            player_1.Play("grabP1");
+            grab ("f", otherObj);
+        
+
 		}
 	}
 
+	void  OnCollisionEnter2D ( Collision2D otherObj)
+	{
+		if (otherObj.transform.CompareTag ("hazards"))
+		{
+			collDetect (otherObj);
 
-
+		}
+	}
 }
