@@ -11,11 +11,11 @@ public class Movement : MonoBehaviour {
 	//camera movement
 	cameraShake Camera;
 
+    public Animator player_1;
 
 
 
-
-	public Movement()
+    public Movement()
 	{
 		speed = 6;
 	}
@@ -32,12 +32,14 @@ public class Movement : MonoBehaviour {
 
 	public void MoveLeft()
 	{
-		transform.position -= transform.right * Time.deltaTime * speed;
+        player_1.Play("leftP1");
+        transform.position -= transform.right * Time.deltaTime * speed;
 	}	
 
 	public void MoveRight()
 	{
-		transform.position += transform.right * Time.deltaTime * speed;
+        player_1.Play("rightP1");
+        transform.position += transform.right * Time.deltaTime * speed;
 
 	}	
 
@@ -61,15 +63,16 @@ public class Movement : MonoBehaviour {
 	}
 		
 
-	public void collDetect(Collider2D otherObj)
+	public void collDetect(Collision2D otherObj)
 	{
-		if (otherObj.transform.CompareTag ("hazards")) {
-			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<cameraShake> ().startShake ();
-		
-
-
+		if (otherObj.transform.CompareTag("hazards"))
+		{
+			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraShake>().startShake();
 		}
 
 
 	}
+
+
+
 }

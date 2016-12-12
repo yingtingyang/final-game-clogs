@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 20a0c2e548592374ab0d11d78e32dd53
-timeCreated: 1480427099
+guid: 5468e91c3949c9e4bb904af5593885d1
+timeCreated: 1481573826
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: assets_0
-    21300002: assets_1
-    21300004: assets_2
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -33,7 +30,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -41,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -54,46 +51,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: assets_0
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 450
-        width: 443
-        height: 748
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: assets_1
-      rect:
-        serializedVersion: 2
-        x: 664
-        y: 465
-        width: 647
-        height: 370
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: assets_2
-      rect:
-        serializedVersion: 2
-        x: 1430
-        y: 478
-        width: 214
-        height: 357
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
