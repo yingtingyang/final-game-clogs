@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	public void MoveUp()
-	{
+	{   
 		transform.position += transform.up * Time.deltaTime * speed; 
 	}
 

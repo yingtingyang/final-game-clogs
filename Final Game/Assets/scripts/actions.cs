@@ -18,7 +18,8 @@ public class actions : Movement
 	private Transform otherplayer;
 
 	// die fields
-	public int life ;
+	public int lifeP1 ;
+	public int lifeP2;
 
 
 
@@ -72,7 +73,7 @@ public class actions : Movement
 
 	public bool isDead()
 	{
-		if (life <= 0)
+		if (lifeP1 <= 0)
 		{
 			return true;
 		}

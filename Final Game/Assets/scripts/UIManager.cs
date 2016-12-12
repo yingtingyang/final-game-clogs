@@ -6,27 +6,32 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
 
 	//distance fields
-	float travelSp;
-	float amtTraveled;
-	public Slider distView;
+	public Slider slider;
 
 	//countdown fields
 	public float timer;
 	public Text timerTxt;
 
-
+	actions life;
 
 
 
 	void awake() 
-	{
-
+	{ 
+		life = GetComponent<actions> ();
 		timer = 100;
 	}
 
 	void Update()
 	{
+		
+		travelDist();
 		countdown ();
+
+		if (life.lifeP1 <= 0 || life.lifeP2 <=0) 
+		{
+			Invoke ("GameOver", 3f);
+		}
 	}
 
 
@@ -40,8 +45,17 @@ public class UIManager : MonoBehaviour {
 		string mins = Mathf.Abs((int) t / 60).ToString();
 		string sec =  Mathf.Abs( t % 60).ToString("f2");
 		timerTxt.text = mins + ":" + sec;
+
 	//	Debug.Log (t + "and" + Time.time + "and" + timer);
 	}
+
+	void travelDist()
+	{
+		slider.value = Mathf.MoveTowards (slider.value, slider.maxValue, 0.1f);
+	}
+
+
+
 
 
 	public void loadStart()
@@ -56,6 +70,16 @@ public class UIManager : MonoBehaviour {
 
 	public void loadCredits()
 	{
-		SceneManager.LoadScene("Basics");
+		SceneManager.LoadScene("Credits");
 	}
+
+
+	public void GameOver()
+	{
+		
+			SceneManager.LoadScene ("GameOver");
+
+	}
+
+
 }
