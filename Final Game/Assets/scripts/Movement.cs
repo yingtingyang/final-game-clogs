@@ -63,7 +63,7 @@ public class Movement : MonoBehaviour {
 	}
 		
 
-	public void collDetect(Collision2D otherObj)
+	public void collDetect(Collider2D otherObj)
 	{
 		if (otherObj.transform.CompareTag("hazards"))
 		{
