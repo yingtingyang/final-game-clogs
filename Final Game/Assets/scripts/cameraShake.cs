@@ -4,42 +4,43 @@ using System.Collections;
 public class cameraShake : MonoBehaviour
 {
 
-    Vector3 initialL;
-    Quaternion initialR;
+	Vector3 initialL;
+	Quaternion initialR;
 
-    public float shakeDuration = 0.1f;
-    public float magnitude = 0.1f;
+	public float shakeDuration = 0.1f;
+	public float magnitude = 0.1f;
 
-    // Use this for initialization
-    void Start()
-    {
-        initialL = transform.position;
-        initialR = transform.rotation;
-    }
+	// Use this for initialization
+	void Start ()
+	{
+		initialL = transform.position;
+		initialR = transform.rotation;
+	}
 
 
 
-    // Update is called once per frame
-    void Update()
-    { }
+	// Update is called once per frame
+	void Update ()
+	{
+	}
 
-    public void startShake() {
-        StartCoroutine("shakeCam");
-    }
+	public void startShake ()
+	{
+		StartCoroutine ("shakeCam");
+	}
 
-    IEnumerator shakeCam()
-    {
-        float timeLeft = shakeDuration;
-        while (timeLeft > 0)
-        {
-            transform.position = initialL + Random.insideUnitSphere * magnitude;
-            timeLeft -= Time.deltaTime;
-            yield return null;
-        }
+	IEnumerator shakeCam ()
+	{
+		float timeLeft = shakeDuration;
+		while (timeLeft > 0) {
+			transform.position = initialL + Random.insideUnitSphere * magnitude;
+			timeLeft -= Time.deltaTime;
+			yield return null;
+		}
 
-        transform.position = initialL;
-        transform.rotation = initialR;
-    }
+		transform.position = initialL;
+		transform.rotation = initialR;
+	}
 }
 
 
