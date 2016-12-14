@@ -1,87 +1,68 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class Controller2 : actions {
+public class Controller2 : actions
+{
 
-	bool duckKey = false;
 
-    void Start()
-    {
-		lifeP2= 3;
 
+	void Start ()
+	{
+		lifeP2 = 3;
+		otherplayer = GameObject.Find ("player 1").transform;
 		
-    }
-    //	 Update is called once per frame
-    void Update()
-    {
-		if (Input.GetKeyDown(KeyCode.C)) {
-			duckKey = true;
-		}
-		if (Input.GetKeyUp(KeyCode.C)) {
-			duckKey = false;
-		}
+	}
 
+	void Update ()
+	{
 
 		 
-		thrower ("X");
-		die();
+		thrower ("x");
+		die (lifeP2);
 	
 
 		Mspace ();
 
-        if (Input.GetKey("W"))
-        {
-            MoveUp();
-        }
+		if (Input.GetKey (KeyCode.W))
+		{
+			MoveUp ();
+		}
 
-        if (Input.GetKey("S"))
+		if (Input.GetKey (KeyCode.S))
+		{
+			MoveDown ();
+		}
 
-        {
-            MoveDown();
-        }
+		if (Input.GetKey (KeyCode.A))
+		{
+			MoveLeft ();
+		}
 
-        if (Input.GetKey("A"))
-
-        {
-            MoveLeft();
-        }
-
-        if (Input.GetKey("D"))
-
-        {
-            MoveRight();
-        }
+		if (Input.GetKey (KeyCode.D))
+		{
+			MoveRight ();
+		}
 			
 		Debug.Log (lifeP2);
 
-    }
+	}
 
 
 	void  OnTriggerEnter2D (Collider2D otherObj)
 	{
-		if (otherObj.transform.CompareTag ("hazards") || duckKey == true)
+		if (otherObj.transform.CompareTag ("hazards"))
 		{	
-
-			Debug.Log ("ducked");
-
-		} 
-
-		else if(otherObj.transform.CompareTag ("hazards") || duckKey == false)
-
-		{
-
-			lifeP1--;
-			collDetect (otherObj);
-			grab ("Z", otherObj);
+			
+			grab ("z", otherObj, player2);
 		}
 
 	}
 
 
-	public void duck ()
-	{
-		//gameObject.GetComponent<Collider2D> ("Box Collider 2D").isTrigger = false;
-
-	}
+	//	public void duck ()
+	//	{
+	//		//gameObject.GetComponent<Collider2D> ("Box Collider 2D").isTrigger = false;
+	//
+	//	}
 
 }
