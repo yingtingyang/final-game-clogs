@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour {
 	//camera movement
 	cameraShake Camera;
 
-    public Animator player_1;
+   // public Animator player_1;
 
 
 
@@ -32,13 +32,13 @@ public class Movement : MonoBehaviour {
 
 	public void MoveLeft()
 	{
-        player_1.Play("leftP1");
+        //player_1.Play("leftP1");
         transform.position -= transform.right * Time.deltaTime * speed;
 	}	
 
 	public void MoveRight()
 	{
-        player_1.Play("rightP1");
+        //player_1.Play("rightP1");
         transform.position += transform.right * Time.deltaTime * speed;
 
 	}	
