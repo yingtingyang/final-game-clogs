@@ -27,7 +27,8 @@ public class objectSpwan : MonoBehaviour
 	void Spawn ()
 	{
 		//Vector3 spawnPos = transform.position + Vector3.up * (Random.value * heightVariablilty - heightVariablilty * .5f);
-		for (int shootnumber = 0; shootnumber < 3; shootnumber++) {
+		for (int shootnumber = 0; shootnumber < 3; shootnumber++)
+		{
 			// Find a random index between zero and one less than the number of spawn points.
 			int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 			int spawnEnemyIndex = Random.Range (0, 3);

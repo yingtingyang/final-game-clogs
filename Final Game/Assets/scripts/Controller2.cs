@@ -9,7 +9,7 @@ public class Controller2 : actions
 	void Start ()
 	{
 		lifeP2 = 3;
-
+		otherplayer = GameObject.Find ("player 1").transform;
 		
 	}
 
@@ -23,19 +23,23 @@ public class Controller2 : actions
 
 		Mspace ();
 
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (KeyCode.W))
+		{
 			MoveUp ();
 		}
 
-		if (Input.GetKey (KeyCode.S)) {
+		if (Input.GetKey (KeyCode.S))
+		{
 			MoveDown ();
 		}
 
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (KeyCode.A))
+		{
 			MoveLeft ();
 		}
 
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.D))
+		{
 			MoveRight ();
 		}
 			
@@ -46,7 +50,8 @@ public class Controller2 : actions
 
 	void  OnTriggerEnter2D (Collider2D otherObj)
 	{
-		if (otherObj.transform.CompareTag ("hazards")) {	
+		if (otherObj.transform.CompareTag ("hazards"))
+		{	
 			
 			grab ("z", otherObj, player2);
 		}

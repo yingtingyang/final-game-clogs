@@ -15,10 +15,12 @@ public class enemyDmgP1 : actions
 	void Update ()
 	{
 
-		if (Input.GetKeyDown (KeyCode.C)) {
+		if (Input.GetKeyDown (KeyCode.C))
+		{
 			duckKey = true;
 		}
-		if (Input.GetKeyUp (KeyCode.C)) {
+		if (Input.GetKeyUp (KeyCode.C))
+		{
 			duckKey = false;
 		}
 
@@ -26,11 +28,14 @@ public class enemyDmgP1 : actions
 
 	void  OnTriggerEnter2D (Collider2D otherObj)
 	{
-		if (otherObj.transform.CompareTag ("hazards") && duckKey == true) {	
+		if (otherObj.transform.CompareTag ("hazards") && duckKey == true)
+		{	
 
 			Debug.Log ("ducked");
 
-		} else if (otherObj.transform.CompareTag ("hazards") && duckKey == false) {
+		} else if (otherObj.transform.CompareTag ("hazards") && duckKey == false)
+			
+		{
 
 			life.lifeP1--;
 			collDetect (otherObj);

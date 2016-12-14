@@ -32,7 +32,8 @@ public class cameraShake : MonoBehaviour
 	IEnumerator shakeCam ()
 	{
 		float timeLeft = shakeDuration;
-		while (timeLeft > 0) {
+		while (timeLeft > 0)
+		{
 			transform.position = initialL + Random.insideUnitSphere * magnitude;
 			timeLeft -= Time.deltaTime;
 			yield return null;

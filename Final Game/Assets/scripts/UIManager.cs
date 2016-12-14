@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
 
 	//distance fields
 	public Slider slider;
@@ -16,19 +17,19 @@ public class UIManager : MonoBehaviour {
 
 
 
-	void awake() 
+	void awake ()
 	{ 
 		life = GetComponent<actions> ();
 		timer = 100;
 	}
 
-	void Update()
+	void Update ()
 	{
 		
-		travelDist();
+		travelDist ();
 		countdown ();
 
-		if (life.lifeP1 <= 0 || life.lifeP2 <=0) 
+		if (life.lifeP1 <= 0 || life.lifeP2 <= 0)
 		{
 			Invoke ("GameOver", 3f);
 		}
@@ -38,46 +39,46 @@ public class UIManager : MonoBehaviour {
 
 
 
-	 void countdown()
+	void countdown ()
 	{
 		float t = Time.time - timer;
 
-		string mins = Mathf.Abs((int) t / 60).ToString();
-		string sec =  Mathf.Abs( t % 60).ToString("f2");
+		string mins = Mathf.Abs ((int)t / 60).ToString ();
+		string sec = Mathf.Abs (t % 60).ToString ("f2");
 		timerTxt.text = mins + ":" + sec;
 
-	//	Debug.Log (t + "and" + Time.time + "and" + timer);
+		//	Debug.Log (t + "and" + Time.time + "and" + timer);
 	}
 
-	void travelDist()
+	void travelDist ()
 	{
-	slider.value = Mathf.MoveTowards (slider.value, slider.maxValue, 0.1f);
+		slider.value = Mathf.MoveTowards (slider.value, slider.maxValue, 0.1f);
 	}
 
 
 
 
 
-	public void loadStart()
+	public void loadStart ()
 	{
-		SceneManager.LoadScene("Start");
+		SceneManager.LoadScene ("Start");
 	}
 
-	public void loadGame()
+	public void loadGame ()
 	{
-		SceneManager.LoadScene("Basics");
+		SceneManager.LoadScene ("Basics");
 	}
 
-	public void loadCredits()
+	public void loadCredits ()
 	{
-		SceneManager.LoadScene("Credits");
+		SceneManager.LoadScene ("Credits");
 	}
 
 
-	public void GameOver()
+	public void GameOver ()
 	{
 		
-			SceneManager.LoadScene ("GameOver");
+		SceneManager.LoadScene ("GameOver");
 
 	}
 
