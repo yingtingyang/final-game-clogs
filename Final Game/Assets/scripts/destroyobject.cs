@@ -3,21 +3,19 @@ using System.Collections;
 
 public class destroyobject : MonoBehaviour
 {
-    //GameObject hazards;
 
     // Use this for initialization
     void Start()
     {
 
     }
-    void OnCollosionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        //hazards = GameObject.FindGameObjectsWithTag("hazards");
-
-        if (coll.gameObject.tag == "hazards")
+        //if(coll.transform.tag == "hazards")
+        if (other.transform.CompareTag("hazards"))
         {
             Debug.Log("HIT");
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 
@@ -27,3 +25,4 @@ public class destroyobject : MonoBehaviour
 
     }
 }
+   

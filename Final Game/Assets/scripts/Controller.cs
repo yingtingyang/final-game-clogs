@@ -5,12 +5,13 @@ public class Controller : actions
 {
 
 
-
-	void Start ()
+    Animator player_1;
+    void Start ()
 	{
+		
 		lifeP1 = 3;
-
-	}
+        player_1 = GetComponent<Animator>();
+    }
 
 
 	void Update ()
@@ -24,31 +25,32 @@ public class Controller : actions
 
 		if (Input.GetKey (KeyCode.UpArrow))
 		{
-			MoveUp ();
+            player_1.Play("upP1");
+            MoveUp ();
 		}
 
 		if (Input.GetKey (KeyCode.DownArrow))
 		{
-			MoveDown ();
+            
+            MoveDown ();
 		}
 
 		if (Input.GetKey (KeyCode.LeftArrow))
 		{
-			MoveLeft ();
+            player_1.Play("leftP1");
+            MoveLeft ();
 		}
 
 		if (Input.GetKey (KeyCode.RightArrow))
 		{
-			MoveRight ();
+            player_1.Play("rightP1");
+            MoveRight ();
 		}
 			
 		Debug.Log (lifeP1);
 
 		
-		if (lifeP1 > 4)
-		{
-			lifeP1 = 5;
-		}
+				
 			
 				
 				
