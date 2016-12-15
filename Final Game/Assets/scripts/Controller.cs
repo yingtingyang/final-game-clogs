@@ -10,7 +10,7 @@ public class Controller : actions
 	{
 		
 		lifeP1 = 3;
-
+		Mathf.Clamp (lifeP1, 0, 5);
 	}
 
 
