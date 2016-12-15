@@ -4,12 +4,10 @@ using System.Collections;
 
 public class hitSoundEffect : MonoBehaviour
 {
-    public AudioClip hit;
-    public AudioSource hitSound;
+
     // Use this for initialization
     void Start()
     {
-        hitSound.clip = hit;
     }
 
     // Update is called once per frame
@@ -18,12 +16,14 @@ public class hitSoundEffect : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
 
     {
+        if (other.gameObject.tag == "Player")
         {
-            hitSound.PlayOneShot(hit, 1F);
-            }
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
+        }
 
         }
 
