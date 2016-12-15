@@ -8,7 +8,7 @@ public class grabthrowP2 : MonoBehaviour
     private Vector3 players_Last_Position;
     private Transform otherplayer;
     private Rigidbody2D heldObjRb = null;
-    public float throwspeed = 10;
+    public float throwspeed = 2;
     Animator player_2;
 
     void Awake()
@@ -21,7 +21,7 @@ public class grabthrowP2 : MonoBehaviour
     {
         if (otherObj.transform.CompareTag("hazards"))
         {
-            if (Input.GetKey("f") && heldObjRb == null)
+            if (Input.GetKey("z") && heldObjRb == null)
             {
                 player_2.Play("grabP2");
                 otherObj.transform.parent = player1;
@@ -34,7 +34,7 @@ public class grabthrowP2 : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey("g") && heldObjRb != null)
+        if (Input.GetKey("x") && heldObjRb != null)
         {
             player_2.Play("throwP2");
 
