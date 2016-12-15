@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class scrollBG : MonoBehaviour
-{
+public class scrollFG : MonoBehaviour {
+
     public float scrollSpeed = 0.5f;
-    public float tileSizeZ;
+   // public float tileSizeZ;
 
     //private Vector3 startPosition;
 

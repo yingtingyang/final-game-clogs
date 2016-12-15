@@ -6,18 +6,20 @@ public class enemyDmgP1 : actions
 
 	bool duckKey = false;
 	Controller life;
-
-	void Start ()
+    Animator player_1;
+    void Start ()
 	{
 		life = GetComponentInParent<Controller> ();
-	}
+        player_1 = GetComponent<Animator>();
+    }
 	// Update is called once per frame
 	void Update ()
 	{
 
 		if (Input.GetKeyDown (KeyCode.B))
 		{
-			duckKey = true;
+            player_1.Play("dodgeP1");
+            duckKey = true;
 		}
 		if (Input.GetKeyUp (KeyCode.B))
 		{
