@@ -4,7 +4,7 @@ using System.Collections;
 
 public class hitSoundEffect : MonoBehaviour
 {
-
+    AudioSource hitSound;
     // Use this for initialization
     void Start()
     {
@@ -13,6 +13,11 @@ public class hitSoundEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+            hitSound.volume = 0F;
+
+        if (Input.GetKeyDown(KeyCode.C))
+            hitSound.volume = 0F;
 
     }
 
