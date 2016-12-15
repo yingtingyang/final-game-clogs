@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Movement : MonoBehaviour
 {
-	
+    Animator player_1;
 	public float speed;
 	//	public Transform obj2;
 	public float boundBreak = 1;
@@ -13,6 +13,13 @@ public class Movement : MonoBehaviour
 	cameraShake Camera;
 
 	//    public Animator player_1;
+    
+    void Start()
+    {
+        player_1 = GetComponent<Animator>();
+        
+    }
+
 
 
 
@@ -23,8 +30,10 @@ public class Movement : MonoBehaviour
 
 	public void MoveUp ()
 	{   
-		transform.position += transform.up * Time.deltaTime * speed; 
-	}
+		transform.position += transform.up * Time.deltaTime * speed;
+        player_1.Play("upP1");
+        transform.localScale = new Vector3(1, 1, 1);
+    }
 
 	public void MoveDown ()
 	{
