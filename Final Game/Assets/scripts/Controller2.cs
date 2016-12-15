@@ -12,7 +12,6 @@ public class Controller2 : actions
 		lifeP2 = 3;
 		otherplayer = GameObject.Find ("player 1").transform;
 
-
 		
 	}
 
