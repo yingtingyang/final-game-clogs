@@ -10,8 +10,8 @@ public class cameraShake : MonoBehaviour
 	public float shakeDuration = 0.1f;
 	public float magnitude = 0.1f;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 		initialL = transform.position;
 		initialR = transform.rotation;
@@ -27,7 +27,7 @@ public class cameraShake : MonoBehaviour
 	public void startShake ()
 	{
 		StartCoroutine ("shakeCam");
-	}
+    }
 
 	IEnumerator shakeCam ()
 	{
@@ -37,7 +37,7 @@ public class cameraShake : MonoBehaviour
 			transform.position = initialL + Random.insideUnitSphere * magnitude;
 			timeLeft -= Time.deltaTime;
 			yield return null;
-		}
+        }
 
 		transform.position = initialL;
 		transform.rotation = initialR;
