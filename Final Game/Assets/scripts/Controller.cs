@@ -8,9 +8,8 @@ public class Controller : actions
 
 	void Start ()
 	{
-		
 		lifeP1 = 3;
-		Mathf.Clamp (lifeP1, 0, 5);
+
 	}
 
 
@@ -46,7 +45,10 @@ public class Controller : actions
 		Debug.Log (lifeP1);
 
 		
-				
+		if (lifeP1 > 4)
+		{
+			lifeP1 = 5;
+		}
 			
 				
 				

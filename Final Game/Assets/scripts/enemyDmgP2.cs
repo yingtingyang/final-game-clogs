@@ -30,8 +30,7 @@ public class enemyDmgP2 : actions
 	{
 		if (otherObj.transform.CompareTag ("hazards") && duckKey == true) {	
 			life.lifeP2++;
-			Mathf.Clamp (life.lifeP2, 0, 5);
-			Mathf.Clamp (life.lifeP1, 0, 5);
+
 
 			Debug.Log ("ducked");
 
