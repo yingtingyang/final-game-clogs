@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
 
 
 
+
+
 	void awake ()
 	{ 
 		life = GetComponent<actions> ();
