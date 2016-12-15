@@ -14,7 +14,7 @@ public class destroyobject : MonoBehaviour
         //if(coll.transform.tag == "hazards")
         if (other.transform.CompareTag("hazards"))
         {
-            Debug.Log("HIT");
+            //Debug.Log("HIT");
             Destroy(other.gameObject);
         }
     }
