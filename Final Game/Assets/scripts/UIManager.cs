@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
 
 	actions life;
 
+	public Text p2lifeTx;
+	public Text p1lifeTx;
+
 
 
 
@@ -27,9 +30,12 @@ public class UIManager : MonoBehaviour
 
 	void Update ()
 	{
+
+
 		
 		travelDist ();
 		countdown ();
+		playerLives ();
 
 		if (life.lifeP1 <= 0 || life.lifeP2 <= 0)
 		{
@@ -58,7 +64,14 @@ public class UIManager : MonoBehaviour
 	}
 
 
+	void playerLives()
+	{
+		string p1life = life.lifeP1.ToString ();	
+		string p2life = life.lifeP2.ToString ();	
+		p1lifeTx.text = "P1 life:"+ p1life;
+		p2lifeTx.text = "P1 life:"+ p2life;
 
+	}
 
 
 	public void loadStart ()
