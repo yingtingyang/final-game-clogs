@@ -5,13 +5,13 @@ public class grabthrowP1 : MonoBehaviour {
     public Transform player1;
     public Transform player2;
     private Vector3 players_Last_Position;
-    private Transform otherplayer;
+    public Transform otherplayer;
     private Rigidbody2D heldObjRb = null;
     public float throwspeed = 10;
     Animator player_1;
     void Awake()
     {
-        otherplayer = GameObject.Find("player 2").transform;
+       // otherplayer = GameObject.Find("player 2").transform;
         player_1 = GetComponent<Animator>();
     }
 
@@ -19,9 +19,9 @@ public class grabthrowP1 : MonoBehaviour {
     {
         if (otherObj.transform.CompareTag("hazards"))
         {
-            if (Input.GetKey("m") && heldObjRb == null)
+            if (Input.GetKey(KeyCode.M) && heldObjRb == null)
             {
-                player_1.Play("grabP1");
+               // player_1.Play("grabP1");
                 otherObj.transform.parent = player1;
                 heldObjRb = otherObj.gameObject.GetComponent<Rigidbody2D>();
                 heldObjRb.velocity = Vector2.zero;
@@ -33,8 +33,8 @@ public class grabthrowP1 : MonoBehaviour {
     }
     void Update()
     {
-        if (Input.GetKey("n") && heldObjRb != null) {
-            player_1.Play("throwP1");
+        if (Input.GetKey(KeyCode.N) && heldObjRb != null) {
+          //  player_1.Play("throwP1");
             players_Last_Position = otherplayer.position;
             Vector2 throwDirection = new Vector2(players_Last_Position.x - transform.position.x, players_Last_Position.y - transform.position.y);
             heldObjRb.velocity = (throwDirection * throwspeed);

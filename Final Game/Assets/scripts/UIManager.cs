@@ -98,4 +98,12 @@ public class UIManager : MonoBehaviour
 	}
 
 
+    public void instructions()
+    {
+
+        SceneManager.LoadScene("Instructions");
+
+    }
+
+
 }

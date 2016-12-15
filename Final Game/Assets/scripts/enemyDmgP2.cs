@@ -19,11 +19,11 @@ public class enemyDmgP2 : actions
 	void Update ()
 	{
 		
-		if (Input.GetKeyDown (KeyCode.C)) {
-            player_2.Play("dodgeP2");
+		if (Input.GetKeyDown (KeyCode.H)) {
+           // player_2.Play("dodgeP2");
             duckKey = true;
 		}
-		if (Input.GetKeyUp (KeyCode.C)) {
+		if (Input.GetKeyUp (KeyCode.H)) {
 			duckKey = false;
 		}
 
