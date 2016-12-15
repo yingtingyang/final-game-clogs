@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
 	{   
 		transform.position += transform.up * Time.deltaTime * speed;
         player_1.Play("upP1");
-        transform.localScale = new Vector3(1, 1, 1);
+        
     }
 
 	public void MoveDown ()

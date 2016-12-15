@@ -16,7 +16,7 @@ public class destroyobject : MonoBehaviour
 
         if (coll.gameObject.tag == "hazards")
         {
-            //Debug.Log("HIT");
+            Debug.Log("HIT");
             Destroy(gameObject);
         }
     }
