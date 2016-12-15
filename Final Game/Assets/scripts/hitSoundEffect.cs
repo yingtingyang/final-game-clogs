@@ -8,6 +8,7 @@ public class hitSoundEffect : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        hitSound = GetComponent <AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,8 +27,7 @@ public class hitSoundEffect : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.Play();
+            hitSound.Play();
         }
 
         }
