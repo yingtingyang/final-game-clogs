@@ -53,6 +53,10 @@ public class Controller2 : actions
 			
 		Debug.Log (lifeP2);
 
+		if (lifeP2 > 4)
+		{
+			lifeP2= 5;
+		}
 	}
 
 
