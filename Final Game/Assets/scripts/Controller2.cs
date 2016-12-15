@@ -6,18 +6,24 @@ public class Controller2 : actions
 
 
 
+
 	void Start ()
 	{
 		lifeP2 = 3;
 		otherplayer = GameObject.Find ("player 1").transform;
+
+
 		
 	}
 
 	void Update ()
 	{
-
+//		for(int i=0 ; i<= otherObj.Length;i++)
+//		{
+//		GrabThrow (otherObj[i],player2);
+//		}
 		 
-		thrower ("x");
+//		thrower ("x");
 		die (lifeP2);
 	
 
@@ -53,7 +59,7 @@ public class Controller2 : actions
 		if (otherObj.transform.CompareTag ("hazards"))
 		{	
 			
-			grab ("z", otherObj, player2);
+//			grab ("z", otherObj, player2);
 		}
 
 	}

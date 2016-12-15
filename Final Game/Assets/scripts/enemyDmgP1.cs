@@ -15,11 +15,11 @@ public class enemyDmgP1 : actions
 	void Update ()
 	{
 
-		if (Input.GetKeyDown (KeyCode.C))
+		if (Input.GetKeyDown (KeyCode.B))
 		{
 			duckKey = true;
 		}
-		if (Input.GetKeyUp (KeyCode.C))
+		if (Input.GetKeyUp (KeyCode.B))
 		{
 			duckKey = false;
 		}
@@ -30,7 +30,7 @@ public class enemyDmgP1 : actions
 	{
 		if (otherObj.transform.CompareTag ("hazards") && duckKey == true)
 		{	
-
+			life.lifeP1++;
 			Debug.Log ("ducked");
 
 		} else if (otherObj.transform.CompareTag ("hazards") && duckKey == false)

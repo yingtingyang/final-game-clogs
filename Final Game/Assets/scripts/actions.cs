@@ -21,6 +21,11 @@ public class actions : Movement
 	public int lifeP1;
 	public int lifeP2;
 
+	//raycast fields
+	public LayerMask enemyLayer;
+
+	private float range;
+
 
 
 
@@ -34,48 +39,16 @@ public class actions : Movement
 		throwspeed = 5;
 		heldObjRb = null;
 
-	}
-
-
-	public void grab (string button, Collider2D otherObj, Transform parentPlayer)
-	{
-		
-		if (Input.GetKey(button) && heldObjRb == null)
-		{
-			otherObj.transform.parent = parentPlayer;
-			heldObjRb = otherObj.gameObject.GetComponent<Rigidbody2D> ();
-			heldObjRb.velocity = Vector2.zero;
-			Debug.Log ("grab");
-
-		}
-	
+		range = 10f;
 
 	}
 
 
-	public void thrower (string button)
-	{
-
-		if (Input.GetKeyUp (button) && heldObjRb != null)
-		{
-
-			players_Last_Position = otherplayer.position;
-			Vector2 throwDirection = new Vector2 (players_Last_Position.x - transform.position.x, players_Last_Position.y - transform.position.y);
-			heldObjRb.velocity = (throwDirection * throwspeed);
-			print (throwDirection);
-			player1.transform.DetachChildren ();
-			heldObjRb = null;
-
-			//Now you have the position of the player when you seen it
-			// stored as a variable
-		}
-
-	}
 
 
 	public bool isDead (int playerlife)
 	{
-		if (playerlife <= 0)
+		if (playerlife < 0)
 		{
 			return true;
 		} else
@@ -96,18 +69,58 @@ public class actions : Movement
  
 	}
 
+//
+//	public void dodge (GameObject otherObj, string button)
+//	{
+//		if (Input.GetKeyDown (button))
+//		{
+//			if (otherObj.transform.CompareTag ("player"))
+//			{	
+//				GetComponent<BoxCollider2D> ().enabled = false;
+//			}
+//		}
+//	}
 
-	public void dodge (Collider2D otherObj, string button)
+	public void GrabThrow ( Transform parentPlayer)
 	{
-		if (Input.GetKeyDown (button))
+//		Vector2 pos = new Vector2 (transform.position.x, transform.position.y);
+
+
+
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, transform.right, range,enemyLayer);
+
+		if ( hit.collider != null)
 		{
-			if (otherObj.transform.CompareTag ("player"))
-			{	
-				GetComponent<BoxCollider2D> ().enabled = false;
-			}
-		}
+
+			if (Input.GetKey ("m") )
+			{
+				if (heldObjRb == null)
+				{
+					Transform objectHit = hit.transform;
+					objectHit.transform.parent = transform.parent;
+					heldObjRb = objectHit.transform.gameObject.GetComponent<Rigidbody2D> ();
+					heldObjRb.velocity = Vector2.zero;
+					Debug.Log ("grab");
+					Debug.Log (heldObjRb);
+
+				}
+
+
+			}  if (Input.GetKeyUp ("m"))
+			{
+				if (heldObjRb != null)
+				{
+
+					players_Last_Position = otherplayer.position;
+					Vector2 throwDirection = new Vector2 (players_Last_Position.x - transform.position.x, players_Last_Position.y - transform.position.y);
+					heldObjRb.velocity = (throwDirection * throwspeed);
+					print (throwDirection);
+					player1.transform.DetachChildren ();
+					heldObjRb = null;
+					Debug.Log ("thrown");
+
+				}
+		    }
+	    }
 	}
-
-
-
 }

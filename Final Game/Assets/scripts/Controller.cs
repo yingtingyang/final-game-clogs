@@ -5,22 +5,21 @@ public class Controller : actions
 {
 
 
+
 	void Start ()
 	{
-
+		
 		lifeP1 = 3;
-		otherplayer = GameObject.Find ("player 2").transform;
+
 	}
 
 
 	void Update ()
 	{
-
-
-
-
+//		Debug.DrawRay (transform.position, transform.right * 10, Color.green);
+//		GrabThrow (player1);
 		die (lifeP1);
-		thrower ("n");
+	
 
 		Mspace ();
 
@@ -46,19 +45,18 @@ public class Controller : actions
 			
 		Debug.Log (lifeP1);
 
+		
+				
+			
+				
+				
 
 	}
 
 
 	void  OnTriggerEnter2D (Collider2D otherObj)
 	{
-		if (otherObj.transform.CompareTag ("hazards"))
-		{	
-				
-			//grab ("m", otherObj, player1);
 		
-
-		}
 
 
 	}

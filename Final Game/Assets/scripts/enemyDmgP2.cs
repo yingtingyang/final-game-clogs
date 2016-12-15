@@ -29,6 +29,7 @@ public class enemyDmgP2 : actions
 	void  OnTriggerEnter2D (Collider2D otherObj)
 	{
 		if (otherObj.transform.CompareTag ("hazards") && duckKey == true) {	
+			life.lifeP2++;
 
 			Debug.Log ("ducked");
 
