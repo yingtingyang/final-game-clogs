@@ -10,7 +10,7 @@ public class Controller2 : actions
     void Start ()
 	{
 		lifeP2 = 3;
-		otherplayer = GameObject.Find ("player 1").transform;
+//		otherplayer = GameObject.Find ("player 1").transform;
         player_2 = GetComponent<Animator>();
 
     }
