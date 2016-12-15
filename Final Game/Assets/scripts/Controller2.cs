@@ -6,14 +6,14 @@ public class Controller2 : actions
 
 
 
-
-	void Start ()
+    Animator player_2;
+    void Start ()
 	{
 		lifeP2 = 3;
 		otherplayer = GameObject.Find ("player 1").transform;
+        player_2 = GetComponent<Animator>();
 
-		
-	}
+    }
 
 	void Update ()
 	{
@@ -30,7 +30,8 @@ public class Controller2 : actions
 
 		if (Input.GetKey (KeyCode.W))
 		{
-			MoveUp ();
+            player_2.Play("upP2");
+            MoveUp ();
 		}
 
 		if (Input.GetKey (KeyCode.S))
@@ -40,12 +41,14 @@ public class Controller2 : actions
 
 		if (Input.GetKey (KeyCode.A))
 		{
-			MoveLeft ();
+            player_2.Play("leftP2");
+            MoveLeft ();
 		}
 
 		if (Input.GetKey (KeyCode.D))
 		{
-			MoveRight ();
+            player_2.Play("rightP2");
+            MoveRight ();
 		}
 			
 		Debug.Log (lifeP2);
