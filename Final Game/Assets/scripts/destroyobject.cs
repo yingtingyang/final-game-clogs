@@ -10,7 +10,7 @@ public class destroyobject : MonoBehaviour
     {
 
     }
-    void OnCollosionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collision2D coll)
     {
         //hazards = GameObject.FindGameObjectsWithTag("hazards");
 
